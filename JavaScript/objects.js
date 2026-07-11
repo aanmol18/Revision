@@ -12,7 +12,7 @@
 
 const obj = {
     name: "Anmol",
-    "full name" : "Kavita Anurag Yadav",
+    "full name" : "Anurag Yadav",
     greet: function (){
         console.log(`Hello ${this.name}! How are you?`)
     }
@@ -50,8 +50,28 @@ const obj = {
 
 
 // const obj2 = {
-//     name: "kavita"
+//     name: "Anurag"
 // }
 
 // obj.greet.call(obj2);
 
+const base = "foo";
+const index = 1;
+
+const obj = {
+    [`${base}${index}`]:43,
+    [`${base}${index+1}`]:45,
+    [`"user- "` +  Date().toLocaleString()]:"created",
+    prop:123
+}
+
+
+console.log(obj.foo1)
+console.log(obj)
+
+// Delete 
+console.log("Deleted the prop")
+delete obj[`${base}${index}`]
+
+
+console.log(obj)
