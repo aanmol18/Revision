@@ -1,23 +1,23 @@
-// const { use } = require("react");
+const { use } = require("react");
 
-// class User{
-//     constructor(username, email, password){
-//         this.username = username;
-//         this.email = email;
-//         this.password = password;
-//     }
+class User{
+    constructor(username, email, password){
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
 
-//     encryptPassword(){
-//         return `${this.password}abc`
-//     }
-// }
+    encryptPassword(){
+        return `${this.password}abc`
+    }
+}
 
-// const chai = new User("chai", "chai@mail.com", "123");
+const chai = new User("chai", "chai@mail.com", "123");
 
-// console.log(chai.encryptPassword());
+console.log(chai.encryptPassword());
 
 
-// Dynamic Keys 
+Dynamic Keys 
 
 const base = "foo";
 const index = 1;
