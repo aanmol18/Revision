@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+            text-decoration: underline;
+
+        }
+        table, th,td{
+            border: 2px solid black;
+            border-collapse: collapse;
+            text-align: center;
+            padding: 5px;
+        }
+
+        td{
+            width: 60px;
+        }
+
+        input::placeholder{
+            text-align: center;
+        }
+
+        input{
+            
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Table</h1>
+
+    <table>
+        <thead>
+            <th>S. No.</th>
+            <th>Subject</th>
+            <th>Theory</th>
+            <th>Practical</th>
+            <th>total</th>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Maths</td>
+                <td>71</td>
+                <td>19</td>
+                <td>90</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>English</td>
+                <td>71</td>
+                <td>19</td>
+                <td>90</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Science</td>
+                <td>71</td>
+                <td>19</td>
+                <td>90</td>
+            </tr>
+            <tr>
+                <td >4</td>
+                <td>SST</td>
+                <td>71</td>
+                <td>19</td>
+                <td>90</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Hindi</td>
+                <td>71</td>
+                <td>19</td>
+                <td>90</td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="3">total</td>
+                <td colspan="2">450</td>
+            </tr>
+        </tfoot>
+    </table>
+
+
+    <h1>Form</h1>
+
+
+    <form method="post">
+        <input type="text" placeholder="john Doe" required><br>
+        <input type="number" placeholder="12" required><br>
+        <input type="color" required><br>
+        <textarea name="addresss" id="address" placeholder="E-150, Paris, France" rows="5" cols="50"></textarea>
+
+        <fieldset>
+            <legend>Some Extra Details about you</legend>
+
+            <label for="hobbies">Select Your Hobbies</label> <br>
+
+            <!-- checkbox -->
+            <input type="checkbox" id="videoGames" value="hobbies"> <label for="videoGames">Video Games</label> <br>
+            
+            <input type="checkbox" id="sleeping" value="hobbies"> <label for="sleeping">Sleeping</label>
+
+            <br><br>
+
+
+            <!-- Radio -->
+             <label for="fav_lang">Choose Your Favourite Langauge</label><br>
+            <input type="radio" name="fav_language" id="python" value="C"><label for="Python">Python</label><br>
+
+            <input type="radio" name="fav_language" id="java" value="Java"><label for="java">JAVA</label><br>
+
+            <input type="radio" name="fav_language" id="cpp" value="CPP"><label for="cpp">C++</label><br>
+
+
+            <br><br>
+
+            <select name="hobbies" id="hobbies">
+                <option value="cricket" >Cricket</option>
+                <option value="football">football</option>
+            </select>
+        </fieldset>
+
+        <button type="submit">Submit</button>
+
+    </form>
+</body>
+</html>
