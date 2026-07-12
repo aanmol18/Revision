@@ -1,0 +1,70 @@
+<!-- innerHTML -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>innerHTML Example</title>
+</head>
+<body>
+
+<div id="box"></div>
+
+<script>
+    const box = document.getElementById("box");
+
+    box.innerHTML = `
+        <h2>Welcome</h2>
+        <p>This is <b>JavaScript</b></p>
+    `;
+</script>
+
+</body>
+</html>
+
+
+
+
+<!-- innerText -->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="box"></div>
+
+<script>
+
+const box = document.getElementById("box");
+
+box.innerText = "<h1>Hello World</h1>";
+
+</script>
+
+</body>
+</html>
+
+
+
+
+<!-- innerContent -->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="box">
+    Hello
+    <span style="display:none;">Hidden Text</span>
+    <b>JavaScript</b>
+</div>
+
+<script>
+
+const box = document.getElementById("box");
+
+console.log(box.textContent);
+
+</script>
+
+</body>
+</html>

@@ -8,8 +8,8 @@ const person = {
 
 intro.call(person, "Noida", "India");
 
-person["name"] = "Kavita";
+person["name"] = "Anurag";
 
-intro.call(person, "Kashipur", "India");
+intro.call(person, "Aligarh", "India");
 
 // The call() method lets you invoke a function immediately while explicitly setting the value of this. It also allows you to pass arguments individually.

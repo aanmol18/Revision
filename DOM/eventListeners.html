@@ -1,0 +1,77 @@
+<!-- <!DOCTYPE html>
+<html>
+
+<body>
+
+    <input type="text" id="name">
+
+    <input id="box">
+
+    <script>
+        const input = document.getElementById("name");
+
+        input.addEventListener("change", function () {
+            console.log(input.value);
+        });
+
+        input.onfocus = function () {
+            input.style.background = "yellow";
+
+        };
+
+        input.onblur = function () {
+            input.style.background = "white";
+        };
+
+        const box = document.getElementById("box");
+
+box.addEventListener("keydown", function(){
+
+    console.log("Key Down");
+
+});
+
+
+    </script>
+
+</body>
+
+</html> -->
+
+
+<!-- Event objects -->
+
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <button id="btn">Click Me </button>
+
+    <a href="https://www.google.com">link</a>
+
+    <script>
+
+        // const btn = document.getElementById("btn");
+
+        // btn.addEventListener("click", (event) => {
+
+        //     console.log(event.target);
+
+        // });
+
+        const link=document.querySelector("a");
+
+link.addEventListener("click",(event)=>{
+
+event.preventDefault();
+
+console.log("Stopped");
+
+});
+
+    </script>
+
+</body>
+
+</html>
