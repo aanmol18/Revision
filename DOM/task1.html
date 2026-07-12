@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --backgroundColor: #000
+            --textColor: #fff
+        }
+
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Dashboard</h1>
+    <div class="counter">
+        <button class="min">[-]</button>
+        <span class="count">0</span>
+        <button class="max">[+]</button>
+        <button class="reset">[Reset]</button>
+    </div>
+
+    <script>
+        let counter = 0;
+
+        const count = document.querySelector(".count");
+        const min = document.querySelector(".min");
+        const max = document.querySelector(".max");
+        const reset = document.querySelector(".reset");
+
+        min.addEventListener("click", () =>{
+            counter--;
+            count.textContent=counter;
+        })
+
+        max.addEventListener("click", () =>{
+            counter++;
+            count.textContent=counter;
+        })
+
+        reset.addEventListener("click", ()=>{
+            counter = 0;
+            count.textContent=counter;
+        })
+    </script>
+</body>
+</html>
