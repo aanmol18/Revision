@@ -6,12 +6,17 @@
     <title>Document</title>
     <style>
         :root{
-            --backgroundColor: #000
-            --textColor: #fff
+            --backgroundColor: #000;
+            --color: #fff;
         }
 
         body{
             font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .dark{
+            background-color: var(--backgroundColor);
+            color: var(--color);
         }
     </style>
 </head>
@@ -22,6 +27,36 @@
         <span class="count">0</span>
         <button class="max">[+]</button>
         <button class="reset">[Reset]</button>
+    </div>
+
+    <br><br><br>
+    <div class="darkMode">
+        <h3>Theme</h3>
+        <button class="darkBtn">Enter Dark Mode</button>
+    </div>
+    <br><br><br>
+
+    <div class="charCounter">
+        <input type="text" id="input" placeholder="Enter the text/number and get the character count">
+    </div>
+
+    <br><br><br>
+    <div class="digiClock">
+        <p class="clock"></p>
+    </div>
+
+    <div class="stopWatch">
+        <p class="display">00:00:00:00</p>
+        <button class="start">Start</button>
+        <button class="pause">Pause</button>
+        <button class="resetWatch">Reset</button>
+    </div>
+    <br><br><br>
+
+    <div class="todo">
+        <input type="text" id="task">
+        <button class="addTask">ADD</button>
+        <br><br>
     </div>
 
     <script>
@@ -46,6 +81,156 @@
             counter = 0;
             count.textContent=counter;
         })
+
+
+
+        // dark mode toggle
+
+        const darkBtn = document.querySelector(".darkBtn");
+        const body = document.querySelector("body")
+
+        darkBtn.addEventListener("click", ()=>{
+            body.classList.toggle("dark")
+
+            if(body.classList.contains("dark")){
+                darkBtn.textContent="Exis Dark Mode";
+            } else{
+                darkBtn.textContent="Enter Dark Mode";
+            }
+        });
+
+
+
+        // Character Counter
+        const charCounter = document.querySelector(".charCounter");
+        let charCount = 0;
+        const input = document.getElementById("input");
+        const para = document.createElement("p");
+        charCounter.appendChild(para);
+        input.addEventListener("input", ()=>{
+            
+            if(input.value === ""){
+                charCount = 0;
+                para.textContent="";
+            } else{
+                charCount++
+                para.textContent=`Your character count is: ${charCount}`;
+            }
+        })
+
+
+
+        // Digital Clock
+
+        const clock = document.querySelector(".clock");
+        function updateClock(){
+            clock.textContent = new Date().toLocaleTimeString();
+        }
+
+        updateClock();
+
+        setInterval(updateClock, 1000);
+
+
+
+        // Stop Watch
+        const display = document.querySelector(".display");
+        const start = document.querySelector(".start");
+        const pause = document.querySelector(".pause");
+        const resetWatch = document.querySelector(".resetWatch");
+        let hours = 0;
+        let minutes = 0;
+        let seconds = 0;
+        let milliseconds = 0;
+
+
+        let timer = null;
+        
+        // update the timer display
+        function updateDisplay(){
+            let h = String(hours).padStart(2, "0");
+            let m = String(minutes).padStart(2, "0");
+            let s = String(seconds).padStart(2, "0");
+            let ms = String(milliseconds/10).padStart(2, "0");
+
+            display.textContent = `${h}:${m}:${s}:${ms}`;
+        }
+
+        // to start stopwatch
+        start.addEventListener("click", ()=>{
+            if(timer !== null) return;
+
+            timer = setInterval(()=>{
+                milliseconds +=10;
+
+                if(milliseconds === 1000){
+                    milliseconds = 0;
+                    seconds++;
+                }
+
+                if(seconds === 60){
+                    seconds = 0;
+                    minutes++
+                }
+
+                if(minutes === 60){
+                    minutes = 0;
+                    hours++
+                }
+
+                updateDisplay();
+            }, 10);
+        });
+
+        pause.addEventListener("click", ()=>{
+            clearInterval(timer);
+            timer = null;
+        });
+
+        resetWatch.addEventListener("click", ()=>{
+            clearInterval(timer);
+            timer = null;
+            milliseconds = 0;
+            seconds = 0;
+            minutes = 0;
+            hours = 0;
+
+            updateDisplay();
+        });
+        
+
+
+        // TOdo list
+
+        const task = document.getElementById("task");
+        const addTask = document.querySelector(".addTask");
+
+        const list = document.createElement("ul");
+        document.querySelector(".todo").appendChild(list)
+        addTask.addEventListener("click", ()=>{
+
+            if(task.value.trim()==="") return;
+
+            // list.innerHTML+=`
+            // <li>${task.value}</li>
+            // <button class="deleteTask">Delet</button>
+            // `;
+
+            const li = document.createElement("li");
+            list.appendChild(li);
+            li.textContent = task.value
+
+            const deleteBtn = document.createElement("button");
+            li.appendChild(deleteBtn);
+            deleteBtn.innerText = "Delete"
+
+            deleteBtn.addEventListener("click", ()=>{
+                li.remove();
+            })
+
+            task.value="";
+        })
+
     </script>
 </body>
 </html>
