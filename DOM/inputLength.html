@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea minlength="5" maxlength="200" placeholder="enter your text" id="textarea"></textarea>
+
+    <script>
+        const textarea = document.querySelector("#textarea");
+        const body = document.querySelector("body");
+        
+        const para = document.createElement('p');
+        body.appendChild(para);
+        para.textContent = "The text length of your textarea is: "
+
+        textarea.addEventListener("input", () =>{
+
+            para.innerHTML=`The text length of your textarea is: ${textarea.value.length}`
+        });
+    </script>
+</body>
+</html>
